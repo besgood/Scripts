@@ -254,6 +254,12 @@ EOF
         exit 1
     fi
     
+    # Verify output file was created
+    if [ ! -f "$OUTPUT_FORMAT" ] || [ ! -s "$OUTPUT_FORMAT" ]; then
+        echo -e "${RED}Error: Conversion produced empty or missing file${NC}"
+        exit 1
+    fi
+    
     echo ""
     echo -e "${GREEN}✓ Conversion complete${NC}"
     echo -e "  Output file: $OUTPUT_FORMAT"
@@ -289,7 +295,7 @@ fi
 echo -e "${BLUE}Step 2: Starting targeted scan...${NC}"
 echo -e "${YELLOW}Settings:${NC}"
 echo "  Total IPs: $total_ips"
-if [ -f "$COMPLETED_FILE" ]; then
+if [ -f "$COMPLETED_FILE" ] && [ "$total_ips" -gt 0 ]; then
     already_done=$(wc -l < "$COMPLETED_FILE")
     remaining=$((total_ips - already_done))
     echo "  Already completed: $already_done"
