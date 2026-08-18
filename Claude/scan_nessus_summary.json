@@ -1,0 +1,6 @@
+Here is our sanitized Nessus vulnerability summary across the enterprise fleet. 
+
+Please perform a Risk & Exploitability Triage:
+1. Identify the top 3-5 critical attack vectors that provide immediate remote code execution, credential compromise, or lateral movement (focus on items with public exploits/Metasploit availability).
+2. Detail which systemic high-severity findings affect the largest portion of the fleet and require immediate group policy or centralized patch deployment.
+3. Generate auditor-ready finding writeups and remediation code for the top 2 highest-risk items.
